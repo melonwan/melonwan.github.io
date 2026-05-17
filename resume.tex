@@ -1,0 +1,162 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.65in, top=0.55in, bottom=0.5in]{geometry}
+\usepackage{mathpazo}       % Palatino — close to Georgia
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\definecolor{gold}{RGB}{184,134,11}
+\definecolor{midgray}{RGB}{80,80,80}
+\definecolor{spotgreen}{RGB}{34,120,60}
+
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+% ── Section headings: small caps + rule ──────────────────
+\titleformat{\section}
+  {\small\bfseries\scshape}
+  {}{0em}{\MakeUppercase}
+  [\vspace{-2pt}\hrule\vspace{3pt}]
+\titlespacing*{\section}{0pt}{9pt}{2pt}
+
+% ── Inline badge macros ───────────────────────────────────
+\newcommand{\vtag}[1]{\hspace{2pt}%
+  \colorbox{black}{\color{white}\fontsize{6.5}{6.5}\selectfont\textsf{\textbf{#1}}}}
+
+\newcommand{\atag}[1]{\hspace{2pt}%
+  \colorbox{gold}{\color{white}\fontsize{6.5}{6.5}\selectfont\textsf{\textbf{$\star$\,#1}}}}
+
+\newcommand{\htag}[1]{\hspace{2pt}%
+  \colorbox{spotgreen}{\color{white}\fontsize{6.5}{6.5}\selectfont\textsf{\textbf{#1}}}}
+
+% ── Author underline helper ───────────────────────────────
+\newcommand{\me}[1]{\underline{#1}}
+
+\begin{document}
+
+% ── Header ───────────────────────────────────────────────
+\begin{center}
+  {\fontsize{22}{22}\selectfont Chengde Wan}\\[5pt]
+  {\small Research Scientist $\cdot$ Meta Reality Labs}\\[4pt]
+  {\small
+    \href{https://scholar.google.com/citations?user=bm5dZwIAAAAJ&hl=en}{Google Scholar}
+    \enspace$\cdot$\enspace
+    \href{https://www.linkedin.com/in/chengde-wan-0417a7a3/}{LinkedIn}
+    \enspace$\cdot$\enspace
+    \href{https://github.com/melonwan}{GitHub}
+  }
+\end{center}
+
+\vspace{4pt}
+
+% ── About ────────────────────────────────────────────────
+\section{About}
+{\small
+  Research Scientist at Meta Reality Labs working on real-time multimodal models for human--AI
+  collaboration and human--computer interaction on AI glasses and AR/VR\@.
+  Led \href{https://developers.meta.com/horizon/design/design-microgestures/}{Microgesture}
+  --- the gesture recognition system on Quest headsets,
+  \href{https://www.youtube.com/watch?v=ztl25aRlnWE&t=1212s}{featured at the Meta Connect keynote}.
+  Passionate about building intelligent agents that understand user intent from multimodal signals,
+  making human--AI collaboration as natural as human conversation.
+}
+
+\vspace{2pt}
+
+% ── Selected Publications ────────────────────────────────
+\section{Selected Publications}
+
+\begin{itemize}[leftmargin=0pt, itemsep=3pt, parsep=0pt, topsep=1pt, label={}]
+
+  \item {\small\textbf{LatentHOI: On the Generalizable Hand Object Motion Generation with Latent Hand Diffusion}%
+    \vtag{CVPR 2025}}\\
+    {\footnotesize\color{midgray} M.~Li, S.~Christen, \me{C.~Wan}, Y.~Cai, R.~Liao, L.~Sigal, S.~Ma}
+
+  \item {\small\textbf{STMG: A Machine Learning Microgesture Recognition System for Thumb-Based VR/AR Input}%
+    \vtag{CHI 2024}}\\
+    {\footnotesize\color{midgray} K.~Kin, \me{C.~Wan}, K.~Koh, A.~Marin, N.C.~Camg\"{o}z, et al.}
+
+  \item {\small\textbf{POET: Prompt Offset Tuning for Continual Human Action Adaptation}%
+    \vtag{ECCV 2024}}\\
+    {\footnotesize\color{midgray} P.~Garg, K.J.~Joseph, V.N.~Balasubramanian, N.C.~Camg\"{o}z, \me{C.~Wan}, K.~Kin, et al.}
+
+  \item {\small\textbf{PressureVision: Estimating Hand Pressure from a Single RGB Image}%
+    \vtag{ECCV 2022}}\\
+    {\footnotesize\color{midgray} P.~Grady, C.~Tang, S.~Brahmbhatt, C.D.~Twigg, \me{C.~Wan}, J.~Hays, C.C.~Kemp}
+
+  \item {\small\textbf{MegaTrack: Monochrome Egocentric Articulated Hand-Tracking for Virtual Reality}%
+    \vtag{SIGGRAPH 2020}}\\
+    {\footnotesize\color{midgray} S.~Han, B.~Liu, R.~Cabezas, C.D.~Twigg, P.~Zhang, \me{C.~Wan}, et al.}
+
+  \item {\small\textbf{Self-Supervised 3D Hand Pose Estimation Through Training by Fitting}%
+    \vtag{CVPR 2019}\atag{Best Paper Final List}}\\
+    {\footnotesize\color{midgray} \me{C.~Wan}, T.~Probst, L.V.~Gool, A.~Yao}
+
+  \item {\small\textbf{Dense 3D Regression for Hand Pose Estimation}%
+    \vtag{CVPR 2018}}\\
+    {\footnotesize\color{midgray} \me{C.~Wan}, T.~Probst, L.~Van Gool, A.~Yao}
+
+  \item {\small\textbf{Crossing Nets: Combining GANs and VAEs with a Shared Latent Space for Hand Pose Estimation}%
+    \vtag{CVPR 2017}\htag{Spotlight}}\\
+    {\footnotesize\color{midgray} \me{C.~Wan}, T.~Probst, L.~Van Gool, A.~Yao}
+
+  \item {\small\textbf{Deep Learning on Lie Groups for Skeleton-Based Action Recognition}%
+    \vtag{CVPR 2017}\htag{Spotlight}}\\
+    {\footnotesize\color{midgray} Z.~Huang, \me{C.~Wan}, T.~Probst, L.~Van Gool}
+
+\end{itemize}
+
+\vspace{2pt}
+
+% ── Patents ──────────────────────────────────────────────
+\section{Patents}
+
+{\small\textbf{Systems and Methods for Hand Pose Estimation from Video}}\\
+{\footnotesize\color{midgray} \me{C.~Wan}, R.~Cabezas, X.~Liu, Z.~Li \quad US Patent 11,823,498 $\cdot$ 2023}
+
+\vspace{2pt}
+
+% ── Experience ───────────────────────────────────────────
+\section{Experience}
+
+\begin{itemize}[leftmargin=0pt, itemsep=3pt, parsep=0pt, topsep=1pt, label={}]
+
+  \item {\small\textbf{Research Scientist} $\cdot$ Meta Reality Labs, Redmond WA}\\
+    {\footnotesize\color{midgray} Sep 2019 -- Present \quad Human--computer interaction in AR/VR \& AI glasses}
+
+  \item {\small\textbf{Research Assistant} $\cdot$ Nanyang Technological University, Singapore}\\
+    {\footnotesize\color{midgray} Apr 2014 -- Oct 2014}
+
+  \item {\small\textbf{Research Intern} $\cdot$ Intel Labs, Beijing}\\
+    {\footnotesize\color{midgray} May 2012 -- Sep 2012}
+
+\end{itemize}
+
+\vspace{2pt}
+
+% ── Education ────────────────────────────────────────────
+\section{Education}
+
+\begin{itemize}[leftmargin=0pt, itemsep=3pt, parsep=0pt, topsep=1pt, label={}]
+
+  \item {\small\textbf{PhD} $\cdot$ Electrical and Electronics Engineering \quad ETH Zurich}\\
+    {\footnotesize\color{midgray}
+      2014 -- 2019 \quad
+      Supervisors: Prof.\ Luc Van Gool \& Prof.\ Angela Yao}
+
+  \item {\small\textbf{Master's} $\cdot$ Electrical and Electronics Engineering \quad BUPT}\\
+    {\footnotesize\color{midgray} 2011 -- 2014}
+
+  \item {\small\textbf{Bachelor's} $\cdot$ Electrical, Electronics and Communications Engineering \quad BUPT}\\
+    {\footnotesize\color{midgray} 2007 -- 2011}
+
+\end{itemize}
+
+\end{document}

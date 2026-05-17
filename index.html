@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chengde Wan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.65;
+            color: #111;
+            background: #fff;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        a { color: #111; }
+        a:hover { color: #555; }
+
+        /* ── Header ─────────────────────────────────────── */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 36px;
+            margin-bottom: 44px;
+        }
+
+        .header-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .header-info h1 {
+            font-size: 30px;
+            font-weight: normal;
+            letter-spacing: -0.3px;
+            margin-bottom: 4px;
+        }
+
+        .affiliation {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 12px;
+            font-family: sans-serif;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.15s;
+            font-size: 15px;
+        }
+        .social-links a:hover { color: #000; }
+        .social-links i { font-size: 15px; }
+
+        /* ── Section ─────────────────────────────────────── */
+        section { margin-bottom: 40px; }
+
+        .section-title {
+            font-size: 13px;
+            font-family: sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 1.5px solid #111;
+        }
+
+        /* ── Bio ─────────────────────────────────────── */
+        .bio p {
+            font-size: 15px;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        /* ── Publications ─────────────────────────────── */
+        .pub-list { list-style: none; }
+
+        .pub-item {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 44px;
+            align-items: flex-start;
+        }
+
+        .pub-thumb {
+            flex: 0 0 30%;
+            overflow: hidden;
+        }
+
+        .pub-thumb img {
+            width: 100%;
+            display: block;
+        }
+
+        .pub-content { flex: 1; min-width: 0; }
+
+        .pub-title {
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .pub-authors {
+            font-size: 14.5px;
+            color: #333;
+            margin-bottom: 3px;
+            line-height: 1.5;
+        }
+
+        .pub-authors .me {
+            color: #111;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .pub-venue {
+            font-size: 14px;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .pub-links a {
+            font-size: 14px;
+            font-family: sans-serif;
+            color: #4a7fb5;
+            text-decoration: none;
+        }
+
+        .pub-links a:hover { text-decoration: underline; }
+
+        .venue-tag {
+            font-style: normal;
+            font-family: sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            background: #111;
+            color: #fff;
+            padding: 1px 6px;
+            border-radius: 2px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.04em;
+        }
+
+        .pub-meta {
+            font-size: 13px;
+            color: #888;
+            font-family: sans-serif;
+        }
+
+        .award-tag {
+            font-style: normal;
+            font-family: sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            background: #b8860b;
+            color: #fff;
+            padding: 1px 7px;
+            border-radius: 2px;
+            margin-left: 8px;
+            vertical-align: middle;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+
+        .honor-tag {
+            font-style: normal;
+            font-family: sans-serif;
+            font-size: 11.5px;
+            font-weight: 600;
+            background: #22783c;
+            color: #fff;
+            padding: 1px 7px;
+            border-radius: 2px;
+            margin-left: 8px;
+            vertical-align: middle;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+
+        /* ── Experience ───────────────────────────────── */
+        .exp-item { margin-bottom: 16px; }
+
+        .exp-role {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .exp-company {
+            font-size: 15px;
+        }
+
+        .exp-detail {
+            font-size: 14px;
+            color: #555;
+            font-family: sans-serif;
+        }
+
+        /* ── Education ────────────────────────────────── */
+        .edu-item { margin-bottom: 14px; }
+
+        .edu-degree {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .edu-school {
+            font-size: 15px;
+        }
+
+        .edu-years {
+            font-size: 14px;
+            color: #666;
+            font-family: sans-serif;
+        }
+
+        /* ── Footer ───────────────────────────────────── */
+        footer {
+            margin-top: 60px;
+            padding-top: 16px;
+            border-top: 1px solid #ddd;
+            font-size: 13px;
+            color: #aaa;
+            font-family: sans-serif;
+        }
+
+        @media (max-width: 560px) {
+            .header { flex-direction: column; align-items: center; text-align: center; }
+            .social-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────── -->
+<header class="header">
+    <!--
+        To add your photo: save it as photo.jpg in the same folder
+        and uncomment the <img> tag below (remove the placeholder text).
+    -->
+    <div class="header-photo">
+        <img src="photo.png" alt="Chengde Wan">
+    </div>
+
+    <div class="header-info">
+        <h1>Chengde Wan</h1>
+        <div class="affiliation">Research Scientist &middot; Meta Reality Labs</div>
+        <nav class="social-links">
+            <a href="https://scholar.google.com/citations?user=bm5dZwIAAAAJ&hl=en" target="_blank" title="Google Scholar">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chengde-wan-0417a7a3/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/melonwan" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<!-- ── About ────────────────────────────────────────────── -->
+<section>
+    <div class="section-title">About</div>
+    <div class="bio">
+        <p>
+            Hi! I'm a Research Scientist at Meta Reality Labs, building real-time multimodal models
+            for human–AI collaboration and human–computer interaction on AI glasses and AR/VR.
+        </p>
+        <p>
+            I led <a href="https://developers.meta.com/horizon/design/design-microgestures/" target="_blank">Microgesture</a> —
+            the gesture recognition system shipped on Quest headsets,
+            <a href="https://www.youtube.com/watch?v=ztl25aRlnWE&t=1212s" target="_blank">featured at the Meta Connect keynote</a>.
+            I'm passionate about building intelligent agents that perceive human intent through multimodal signals,
+            making collaboration with AI as natural as conversation.
+        </p>
+        <p>
+            Before joining Meta, I completed my PhD at
+            <a href="https://ethz.ch/en.html" target="_blank">ETH Zurich</a> (2019),
+            advised by
+            <a href="https://insait.ai/prof-luc-van-gool/" target="_blank">Prof. Luc Van Gool</a>
+            and
+            <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank">Prof. Angela Yao</a>,
+            where I studied 3D hand pose estimation and skeleton-based action recognition —
+            recognized with a CVPR 2019 Best Paper Finalist award.
+        </p>
+    </div>
+</section>
+
+<!-- ── Publications ─────────────────────────────────────── -->
+<section>
+    <div class="section-title">Publications</div>
+    <ul class="pub-list">
+
+        <!-- Drop images/latentHOI.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/latentHOI.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    LatentHOI: On the Generalizable Hand Object Motion Generation with Latent Hand Diffusion
+
+                </div>
+                <div class="pub-authors">M. Li, S. Christen, <span class="me">C. Wan</span>, Y. Cai, R. Liao, L. Sigal, S. Ma</div>
+                <div class="pub-venue">CVPR 2025</div>
+                <div class="pub-links">
+                    <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Li_LatentHOI_On_the_Generalizable_Hand_Object_Motion_Generation_with_Latent_CVPR_2025_paper.pdf" target="_blank">[pdf]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/stmg.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/stmg.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    STMG: A Machine Learning Microgesture Recognition System for Supporting Thumb-Based VR/AR Input
+
+                </div>
+                <div class="pub-authors">K. Kin, <span class="me">C. Wan</span>, K. Koh, A. Marin, N.C. Camgöz, Y. Zhang, Y. Cai, F. Kovalev, et al.</div>
+                <div class="pub-venue">CHI 2024</div>
+                <div class="pub-links">
+                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642702" target="_blank">[pdf]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/poet.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/poet.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    POET: Prompt Offset Tuning for Continual Human Action Adaptation
+
+                    <span class="honor-tag">Oral</span>
+                </div>
+                <div class="pub-authors">P. Garg, K.J. Joseph, V.N. Balasubramanian, N.C. Camgöz, <span class="me">C. Wan</span>, K. Kin, et al.</div>
+                <div class="pub-venue">ECCV 2024</div>
+                <div class="pub-links">
+                    <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08141.pdf" target="_blank">[pdf]</a>
+                    <a href="https://github.com/humansensinglab/POET-continual-action-recognition" target="_blank">[code]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/dataFree.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/dataFree.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    Data-Free Class-Incremental Hand Gesture Recognition
+
+                </div>
+                <div class="pub-authors">S. Aich, J. Ruiz-Santaquiteria, Z. Lu, P. Garg, K.J. Joseph, A.F. Garcia, <span class="me">C. Wan</span>, et al.</div>
+                <div class="pub-venue">ICCV 2023</div>
+                <div class="pub-links">
+                    <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Aich_Data-Free_Class-Incremental_Hand_Gesture_Recognition_ICCV_2023_paper.pdf" target="_blank">[pdf]</a>
+                    <a href="https://github.com/humansensinglab/dfcil-hgr" target="_blank">[code]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/pressureVision.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/pressureVision.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    PressureVision: Estimating Hand Pressure from a Single RGB Image
+
+                </div>
+                <div class="pub-authors">P. Grady, C. Tang, S. Brahmbhatt, C.D. Twigg, <span class="me">C. Wan</span>, J. Hays, C.C. Kemp</div>
+                <div class="pub-venue">ECCV 2022</div>
+                <div class="pub-links">
+                    <a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136660322.pdf" target="_blank">[pdf]</a>
+                    <a href="https://pressurevision.github.io/" target="_blank">[project]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/megatrack.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/megatrack.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    MegaTrack: Monochrome Egocentric Articulated Hand-Tracking for Virtual Reality
+
+                </div>
+                <div class="pub-authors">S. Han, B. Liu, R. Cabezas, C.D. Twigg, P. Zhang, J. Petkau, T.H. Yu, C.J. Tai, <span class="me">C. Wan</span>, et al.</div>
+                <div class="pub-venue">SIGGRAPH 2020</div>
+                <div class="pub-links">
+                    <a href="https://scontent-sea1-1.xx.fbcdn.net/v/t39.8562-6/10000000_235193588494349_3727758571190956731_n.pdf?_nc_cat=101&ccb=1-7&_nc_sid=e280be&_nc_ohc=3QeGSuNpZtcQ7kNvwGILV4p&_nc_oc=AdoH4kH7ZAXL6mPJi7BHBFxzoqa5ZdDn9iXX65wyxw72UuNBZ90BNS-H2cC74KM9SL0&_nc_zt=14&_nc_ht=scontent-sea1-1.xx&_nc_gid=uZJBiNzLiBwi--AqvlHRnQ&_nc_ss=7b2a8&oh=00_Af4kP13wfRlVuSvhvxq_VCUYDZ-NC0iANh-BRbDwOAr1Ig&oe=6A0FFD4A" target="_blank">[pdf]</a>
+                    <a href="https://research.facebook.com/publications/megatrack-monochrome-egocentric-articulated-hand-tracking-for-virtual-reality/" target="_blank">[project]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/dualGrid.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/dualGrid.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    Dual Grid Net: Hand Mesh Vertex Regression from Single Depth Maps
+
+                </div>
+                <div class="pub-authors"><span class="me">C. Wan</span>, T. Probst, L. Van Gool, A. Yao</div>
+                <div class="pub-venue">ECCV 2020</div>
+                <div class="pub-links">
+                    <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123750443.pdf" target="_blank">[pdf]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/sphereHand.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/sphereHand.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    Self-Supervised 3D Hand Pose Estimation Through Training by Fitting
+
+                    <span class="award-tag">&#9733; Best Paper Final List</span>
+                </div>
+                <div class="pub-authors"><span class="me">C. Wan</span>, T. Probst, L.V. Gool, A. Yao</div>
+                <div class="pub-venue">CVPR 2019</div>
+                <div class="pub-links">
+                    <a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Wan_Self-Supervised_3D_Hand_Pose_Estimation_Through_Training_by_Fitting_CVPR_2019_paper.pdf" target="_blank">[pdf]</a>
+                    <a href="https://github.com/melonwan/sphereHand" target="_blank">[code]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/dense3D.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/dense3D.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    Dense 3D Regression for Hand Pose Estimation
+
+                </div>
+                <div class="pub-authors"><span class="me">C. Wan</span>, T. Probst, L. Van Gool, A. Yao</div>
+                <div class="pub-venue">CVPR 2018</div>
+                <div class="pub-links">
+                    <a href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Wan_Dense_3D_Regression_CVPR_2018_paper.pdf" target="_blank">[pdf]</a>
+                    <a href="https://github.com/melonwan/denseReg" target="_blank">[code]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/lieGroups.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/lieGroups.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    Deep Learning on Lie Groups for Skeleton-Based Action Recognition
+
+                    <span class="honor-tag">Spotlight</span>
+                </div>
+                <div class="pub-authors">Z. Huang, <span class="me">C. Wan</span>, T. Probst, L. Van Gool</div>
+                <div class="pub-venue">CVPR 2017</div>
+                <div class="pub-links">
+                    <a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Huang_Deep_Learning_on_CVPR_2017_paper.pdf" target="_blank">[pdf]</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Drop images/crossingNets.png to add thumbnail -->
+        <li class="pub-item">
+            <div class="pub-thumb"><img src="images/crossingNets.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="pub-content">
+                <div class="pub-title">
+                    Crossing Nets: Combining GANs and VAEs with a Shared Latent Space for Hand Pose Estimation
+
+                    <span class="honor-tag">Spotlight</span>
+                </div>
+                <div class="pub-authors"><span class="me">C. Wan</span>, T. Probst, L. Van Gool, A. Yao</div>
+                <div class="pub-venue">CVPR 2017</div>
+                <div class="pub-links">
+                    <a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Wan_Crossing_Nets_Combining_CVPR_2017_paper.pdf" target="_blank">[pdf]</a>
+                    <a href="https://github.com/melonwan/crossingNet" target="_blank">[code]</a>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</section>
+
+
+<!-- ── Experience ───────────────────────────────────────── -->
+<section>
+    <div class="section-title">Experience</div>
+
+    <div class="exp-item">
+        <div class="exp-role">Research Scientist</div>
+        <div class="exp-company">Meta Reality Labs &mdash; Redmond, WA</div>
+        <div class="exp-detail">Sep 2019 &ndash; Present &nbsp;&middot;&nbsp; Human&ndash;computer interaction in AR/VR</div>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-role">Research Assistant</div>
+        <div class="exp-company">Nanyang Technological University &mdash; Singapore</div>
+        <div class="exp-detail">Apr 2014 &ndash; Oct 2014</div>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-role">Research Intern</div>
+        <div class="exp-company">Intel Labs &mdash; Beijing, China</div>
+        <div class="exp-detail">May 2012 &ndash; Sep 2012</div>
+    </div>
+</section>
+
+<!-- ── Education ────────────────────────────────────────── -->
+<section>
+    <div class="section-title">Education</div>
+
+    <div class="edu-item">
+        <div class="edu-degree">PhD &middot; Electrical and Electronics Engineering</div>
+        <div class="edu-school">ETH Zurich</div>
+        <div class="edu-years">2014 &ndash; 2019</div>
+    </div>
+
+    <div class="edu-item">
+        <div class="edu-degree">Master&rsquo;s &middot; Electrical and Electronics Engineering</div>
+        <div class="edu-school">Beijing University of Posts and Telecommunications (BUPT)</div>
+        <div class="edu-years">2011 &ndash; 2014</div>
+    </div>
+
+    <div class="edu-item">
+        <div class="edu-degree">Bachelor&rsquo;s &middot; Electrical, Electronics and Communications Engineering</div>
+        <div class="edu-school">Beijing University of Posts and Telecommunications (BUPT)</div>
+        <div class="edu-years">2007 &ndash; 2011</div>
+    </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────── -->
+<footer>
+    &copy; 2026 Chengde Wan
+</footer>
+
+</body>
+</html>
