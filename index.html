@@ -14,7 +14,7 @@
             line-height: 1.65;
             color: #111;
             background: #fff;
-            max-width: 760px;
+            max-width: 1020px;
             margin: 0 auto;
             padding: 48px 24px 80px;
         }
@@ -22,73 +22,73 @@
         a { color: #111; }
         a:hover { color: #555; }
 
-        /* ── Header ─────────────────────────────────────── */
-        .header {
+        /* ── Two-column layout ───────────────────────────── */
+        .page-layout {
             display: flex;
+            gap: 52px;
             align-items: flex-start;
-            gap: 36px;
-            margin-bottom: 44px;
         }
 
-        .header-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+        /* ── Sidebar ─────────────────────────────────────── */
+        .sidebar {
+            width: 210px;
             flex-shrink: 0;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #888;
-            font-family: sans-serif;
-            text-align: center;
-            overflow: hidden;
+            position: sticky;
+            top: 40px;
         }
 
-        .header-photo img {
+        .sidebar-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            display: block;
         }
 
-        .header-info h1 {
-            font-size: 30px;
-            font-weight: normal;
-            letter-spacing: -0.3px;
-            margin-bottom: 4px;
+        .sidebar-name {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: -0.2px;
+            margin-bottom: 6px;
+            font-family: Georgia, serif;
         }
 
-        .affiliation {
-            font-size: 15px;
+        .sidebar-affiliation {
+            font-size: 14px;
             color: #444;
-            margin-bottom: 12px;
             font-family: sans-serif;
+            line-height: 1.45;
+            margin-bottom: 16px;
         }
 
-        .social-links {
+        .sidebar-links {
             display: flex;
-            gap: 0;
-            flex-wrap: wrap;
-            align-items: center;
+            flex-direction: column;
+            gap: 8px;
             font-family: sans-serif;
             font-size: 14px;
-            color: #555;
         }
 
-        .social-links a {
-            display: inline-flex;
+        .sidebar-links a {
+            display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             text-decoration: none;
-            color: #4a7fb5;
+            color: #333;
             transition: color 0.15s;
         }
-        .social-links a:hover { color: #2a5f95; text-decoration: underline; }
-        .social-links .sep { margin: 0 8px; color: #bbb; }
-        .social-links i { font-size: 14px; }
+        .sidebar-links a:hover { color: #4a7fb5; }
+        .sidebar-links i { width: 16px; text-align: center; color: #555; font-size: 14px; }
+
+        /* ── Main content ────────────────────────────────── */
+        .main-content { flex: 1; min-width: 0; }
 
         /* ── Section ─────────────────────────────────────── */
         section { margin-bottom: 40px; }
@@ -274,38 +274,34 @@
             font-family: sans-serif;
         }
 
-        @media (max-width: 560px) {
-            .header { flex-direction: column; align-items: center; text-align: center; }
-            .social-links { justify-content: center; }
+        @media (max-width: 680px) {
+            .page-layout { flex-direction: column; }
+            .sidebar { width: 100%; position: static; display: flex; flex-direction: column; align-items: center; text-align: center; }
+            .sidebar-links { align-items: center; }
         }
     </style>
 </head>
 <body>
 
-<!-- ── Header ──────────────────────────────────────────── -->
-<header class="header">
-    <!--
-        To add your photo: save it as photo.jpg in the same folder
-        and uncomment the <img> tag below (remove the placeholder text).
-    -->
-    <div class="header-photo">
+<div class="page-layout">
+
+<!-- ── Sidebar ──────────────────────────────────────────── -->
+<aside class="sidebar">
+    <div class="sidebar-photo">
         <img src="images/photo.png" alt="Chengde Wan">
     </div>
+    <div class="sidebar-name">Chengde Wan</div>
+    <div class="sidebar-affiliation">Research Scientist at Meta Reality Labs</div>
+    <nav class="sidebar-links">
+        <a href="https://melonwan.github.io/" target="_blank"><i class="fas fa-home"></i> Website</a>
+        <a href="https://scholar.google.com/citations?user=bm5dZwIAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        <a href="https://www.linkedin.com/in/chengde-wan-0417a7a3/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/melonwan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    </nav>
+</aside>
 
-    <div class="header-info">
-        <h1>Chengde Wan</h1>
-        <div class="affiliation">Research Scientist &middot; Meta Reality Labs</div>
-        <nav class="social-links">
-            <a href="https://melonwan.github.io/" target="_blank"><i class="fas fa-home"></i> Website</a>
-            <span class="sep">/</span>
-            <a href="https://scholar.google.com/citations?user=bm5dZwIAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-            <span class="sep">/</span>
-            <a href="https://www.linkedin.com/in/chengde-wan-0417a7a3/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <span class="sep">/</span>
-            <a href="https://github.com/melonwan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </nav>
-    </div>
-</header>
+<!-- ── Main content ──────────────────────────────────────── -->
+<main class="main-content">
 
 <!-- ── About ────────────────────────────────────────────── -->
 <section>
@@ -582,6 +578,9 @@
         <div class="edu-years">2007 &ndash; 2011</div>
     </div>
 </section>
+
+</main><!-- end .main-content -->
+</div><!-- end .page-layout -->
 
 <!-- ── Footer ───────────────────────────────────────────── -->
 <footer>
